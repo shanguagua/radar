@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			/*最外层容器*/
+			
+			.container {
+				position: relative;
+				height: 300px;
+				width: 300px;
+				border: 1px solid white;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			/*最里面旋转容器*/
+			
+			.radar-container {
+				width: 120px;
+				height: 120px;
+				border-radius: 50%;
+				box-shadow: 0px 0px 6px rgba(170,170,170,0.35);
+				/*border: 1px solid rgba(170);*/
+				display: flex;
+				z-index: 50;
+				background-color: white;
+				justify-content: center;
+				align-items: center;
+			}
+			/*旋转图片*/
+			
+			.radar-container img {
+				width: 60px;
+				height: 60px;
+				margin: auto;
+			}
+			/*里面图片的旋转*/
+			
+			@keyframes radarMove {
+				to {
+					-webkit-transform: rotate(1turn);
+				}
+			}
+			
+			@-webkit-keyframes radarMove {
+				to {
+					-webkit-transform: rotate(1turn);
+				}
+			}
+			
+			.radar-container img {
+				animation: radarMove 1.2s linear infinite;
+				-webkit-animation: radarMove 1.2s linear infinite;
+			}
+			
+			/*灰色波浪波浪*/
+			.waves {
+				width: 120px;
+				height: 120px;
+				border-radius: 50%;
+				border: 1px solid #eee;
+				position: absolute;
+				background-color: #eee;
+				z-index: 5;
+				top: 90px;
+				animation: wave-spread 1.2s linear infinite;
+				-webkit-animation: wave-spread 1.2s linear infinite;
+				-webkit-transition: all 1.2s ease;
+			}
+			/*灰色波浪动画*/
+			@keyframes wave-spread {
+				100% {
+					-webkit-transform: scale(2.8);
+				}
+			}
+			
+			@-webkit-keyframes wave-spread {
+				100% {
+					-webkit-transform: scale(2.8);
+				}
+			}
+			/*白色水波动画*/
+			.whitewaves {
+				width: 120px;
+				height: 120px;
+				border-radius: 50%;
+				border: 1px solid #FFFFFF;
+				position: absolute;
+				background-color: #FFFFFF;
+				z-index: 10;
+				top: 90px;
+				-webkit-animation: revolving 1.2s linear infinite;
+				animation: revolving 1.2s linear infinite;
+				-webkit-transition: all 1.2s ease;
+			}
+			
+			@-webkit-keyframes revolving {
+				0,20% {
+					-webkit-transform: scale(1);
+				}
+				60% {
+					-webkit-transform: scale(1);
+				}
+				100% {
+					-webkit-transform: scale(2.8);
+				}
+			}
+			/*最外层*/
+			/*灰色水波动画*/
+			.outsider {
+				width: 120px;
+				height: 120px;
+				border-radius: 50%;
+				border: 1px solid #eee;
+				position: absolute;
+				z-index: -15;
+				top: 90px;
+				-webkit-animation: outsiderwave 1.2s linear infinite;
+				animation: outsiderwave 1.2s linear infinite;
+				-webkit-transition: all 1.2s ease-in;
+			}
+			
+			@-webkit-keyframes outsiderwave {
+				0,40% {
+					-webkit-transform: scale(1);
+				}
+				50% {
+					-webkit-transform: scale(1);
+				}
+				100% {
+					-webkit-transform: scale(3.5);
+				}
+			}
+		</style>
+	</head>
+
+	<body style="display: flex;justify-content: center;padding-top: 50px;">
+		<div class="container">
+			<!--灰色水波-->
+			<div class="waves"></div>
+			<!--白色水波-->
+			<div class="whitewaves"></div>
+			<!--最外层-->
+			<div class="outsider"></div>
+			<!--雷达-->
+			<div class="radar-container">
+				<img src="img/radar.png" />
+			</div>
+		</div>
+		
+	</body>
+
+</html>
